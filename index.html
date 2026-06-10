@@ -1,9 +1,264 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Jorge Valencia Ph</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jorge Valencia Ph · Próximamente</title>
+    <meta name="description" content="Jorge Valencia Ph — Fotografía profesional en Cali, Colombia. Nuevo sitio web próximamente.">
+    <meta property="og:title" content="Jorge Valencia Ph · Próximamente">
+    <meta property="og:description" content="Las fotos conmigo siempre serán exitosas. +500 clientes, +7 años de experiencia. Nuevo sitio web en camino.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jorgevalenciaph.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --negro: #080808;
+            --oro: #C9A84C;
+            --marfil: #F2EDE4;
+            --ceniza: #6B6155;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--negro);
+            color: var(--marfil);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        canvas { position: fixed; inset: 0; z-index: 0; }
+        .corners { position: fixed; inset: 1.5rem; pointer-events: none; z-index: 1; }
+        .corner {
+            position: absolute; width: 35px; height: 35px;
+            border-color: var(--oro); border-style: solid; opacity: 0.15;
+        }
+        .c-tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+        .c-tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+        .c-bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+        .c-br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+        .main {
+            position: relative; z-index: 2;
+            text-align: center; padding: 2rem; max-width: 620px;
+        }
+        .logo-line {
+            width: 40px; height: 1px; background: var(--oro);
+            margin: 0 auto 2rem;
+            opacity: 0; animation: fadeUp 1s ease 0.3s forwards;
+        }
+        .name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 8vw, 5rem);
+            font-weight: 300; line-height: 1.05; letter-spacing: 0.02em;
+            opacity: 0; animation: fadeUp 1.2s ease 0.5s forwards;
+        }
+        .name em { font-style: italic; color: var(--oro); }
+        .slogan {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+            font-weight: 300; font-style: italic;
+            color: var(--ceniza); margin-top: 1rem; letter-spacing: 0.03em;
+            opacity: 0; animation: fadeUp 1s ease 0.8s forwards;
+        }
+        .divider {
+            width: 1px; height: 50px;
+            background: linear-gradient(to bottom, var(--oro), transparent);
+            margin: 2.5rem auto;
+            opacity: 0; animation: fadeUp 1s ease 1s forwards;
+        }
+        .coming {
+            font-size: 0.65rem; font-weight: 400;
+            letter-spacing: 0.4em; text-transform: uppercase; color: var(--oro);
+            opacity: 0; animation: fadeUp 1s ease 1.2s forwards;
+        }
+        .coming-stats {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-weight: 300; color: var(--marfil);
+            margin-top: 1rem; line-height: 1.6;
+            opacity: 0; animation: fadeUp 1s ease 1.4s forwards;
+        }
+        .coming-stats strong { color: var(--oro); font-weight: 400; }
+        .coming-sub {
+            font-size: 0.8rem; font-weight: 300;
+            color: var(--ceniza); margin-top: 0.6rem; letter-spacing: 0.03em;
+            opacity: 0; animation: fadeUp 1s ease 1.5s forwards;
+        }
+        .social {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1.5rem; margin-top: 2.5rem;
+            opacity: 0; animation: fadeUp 1s ease 1.7s forwards;
+        }
+        .social a {
+            display: flex; align-items: center; justify-content: center;
+            width: 46px; height: 46px;
+            border: 1px solid rgba(201, 168, 76, 0.2); border-radius: 50%;
+            color: var(--ceniza); transition: all 0.4s ease; text-decoration: none;
+        }
+        .social a:hover {
+            border-color: var(--oro); color: var(--oro);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(201, 168, 76, 0.15);
+        }
+        .social a.wa-circle:hover {
+            border-color: #25D366; color: #25D366;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.2);
+        }
+        .social a svg { width: 18px; height: 18px; fill: currentColor; }
+        .social-labels {
+            display: flex; align-items: center; justify-content: center;
+            gap: 2rem; margin-top: 0.8rem;
+            opacity: 0; animation: fadeUp 1s ease 1.8s forwards;
+        }
+        .social-labels span {
+            font-size: 0.55rem; font-weight: 300;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--ceniza); opacity: 0.5;
+            width: 46px; text-align: center;
+        }
+        .wa-btn {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            margin-top: 2.5rem; padding: 0.85rem 2.2rem;
+            background: transparent;
+            border: 1px solid rgba(37, 211, 102, 0.3); color: #25D366;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.72rem; font-weight: 400;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            text-decoration: none; transition: all 0.4s ease;
+            opacity: 0; animation: fadeUp 1s ease 2s forwards;
+        }
+        .wa-btn:hover {
+            background: #25D366; color: #fff; border-color: #25D366;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.25);
+        }
+        .wa-btn svg { width: 16px; height: 16px; fill: currentColor; }
+        .footer {
+            position: fixed; bottom: 1.5rem; left: 0; right: 0;
+            text-align: center; z-index: 2;
+            font-size: 0.6rem; font-weight: 300;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--ceniza);
+            opacity: 0; animation: fadeUp 1s ease 2.2s forwards;
+        }
+        .footer span { opacity: 0.4; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; opacity: 1 !important; transform: none !important; }
+        }
+        @media (max-width: 480px) {
+            .corners { inset: 1rem; }
+            .corner { width: 25px; height: 25px; }
+            .social { gap: 1.2rem; }
+            .social a { width: 42px; height: 42px; }
+            .social-labels { gap: 1.6rem; }
+            .social-labels span { width: 42px; }
+        }
+    </style>
 </head>
 <body>
-    <h1>jorgevalenciaph.com - Próximamente</h1>
+    <canvas id="bg"></canvas>
+    <div class="corners">
+        <div class="corner c-tl"></div>
+        <div class="corner c-tr"></div>
+        <div class="corner c-bl"></div>
+        <div class="corner c-br"></div>
+    </div>
+    <div class="main">
+        <div class="logo-line"></div>
+        <h1 class="name">Jorge Valencia <em>Ph</em></h1>
+        <p class="slogan">&ldquo;Las fotos conmigo siempre serán exitosas&rdquo;</p>
+        <div class="divider"></div>
+        <p class="coming">Próximamente</p>
+        <p class="coming-stats">Más de <strong>500</strong> sesiones. Más de <strong>7</strong> años.<br>Un nuevo hogar digital.</p>
+        <p class="coming-sub">Fotografía profesional · Cali, Colombia</p>
+        <div class="social">
+            <a href="https://www.instagram.com/jorgevalenciaph/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@jorgevalenciaph" target="_blank" rel="noopener" aria-label="TikTok">
+                <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48V13a8.27 8.27 0 005.58 2.17V11.7a4.83 4.83 0 01-3.77-1.24V6.69h3.77z"/></svg>
+            </a>
+            <a href="https://wa.me/573153864921?text=Hola%20Jorge%2C%20vi%20tu%20página%20y%20quiero%20información%20sobre%20una%20sesión%20fotográfica" target="_blank" rel="noopener" aria-label="WhatsApp" class="wa-circle">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+        </div>
+        <div class="social-labels">
+            <span>Instagram</span>
+            <span>TikTok</span>
+            <span>WhatsApp</span>
+        </div>
+        <a href="https://wa.me/573153864921?text=Hola%20Jorge%2C%20vi%20tu%20página%20y%20quiero%20información%20sobre%20una%20sesión%20fotográfica" class="wa-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agenda tu sesión
+        </a>
+    </div>
+    <div class="footer"><span>© 2026 Jorge Valencia Ph</span></div>
+    <script>
+        const canvas = document.getElementById('bg');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let w, h;
+        function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize);
+        resize();
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * w; this.y = Math.random() * h;
+                this.size = Math.random() * 1.5 + 0.3;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.opacity = Math.random() * 0.15 + 0.03;
+                this.fadeSpeed = Math.random() * 0.003 + 0.001;
+                this.fadeDir = 1;
+            }
+            update() {
+                this.x += this.speedX; this.y += this.speedY;
+                this.opacity += this.fadeSpeed * this.fadeDir;
+                if (this.opacity >= 0.18 || this.opacity <= 0.02) this.fadeDir *= -1;
+                if (this.x < -10 || this.x > w + 10 || this.y < -10 || this.y > h + 10) this.reset();
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(201, 168, 76, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+        const count = Math.min(60, Math.floor((w * h) / 20000));
+        for (let i = 0; i < count; i++) particles.push(new Particle());
+        function drawLines() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(201, 168, 76, ${(1 - dist / 150) * 0.04})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+            particles.forEach(p => { p.update(); p.draw(); });
+            drawLines();
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 </body>
 </html>
