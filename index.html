@@ -367,10 +367,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-slides">
-    <div class="hero-slide active" style="background-image:url('img/hero-bodas.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('img/hero-quince.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('img/hero-maternidad.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('img/hero-cumpleanos.jpg');background-position:center 22%"></div>
+    <div class="hero-slide active" data-bg="img/hero-bodas.jpg" style="background-image:url('img/hero-bodas.jpg')"></div>
+    <div class="hero-slide" data-bg="img/hero-quince.jpg"></div>
+    <div class="hero-slide" data-bg="img/hero-maternidad.jpg"></div>
+    <div class="hero-slide" data-bg="img/hero-cumpleanos.jpg" style="background-position:center 22%"></div>
   </div>
   <div class="hero-dots">
     <button class="hero-dot active" onclick="goSlide(0)" aria-label="Ver Bodas"></button>
@@ -683,7 +683,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     slides[current].classList.remove('active');
     dots[current].classList.remove('active');
     current = (n + slides.length) % slides.length;
-    slides[current].classList.add('active');
+    const sl = slides[current];
+    if (sl.dataset.bg && !sl.style.backgroundImage) { sl.style.backgroundImage = "url('" + sl.dataset.bg + "')"; }
+    sl.classList.add('active');
     dots[current].classList.add('active');
     verMas.href = slideData[current].link;
     verMas.textContent = 'Ver ' + slideData[current].label + ' →';
