@@ -18,7 +18,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="canonical" href="https://jorgevalenciaph.com/" />
 <meta name="geo.region" content="CO-VAC" />
 <meta name="geo.placename" content="Cali, Valle del Cauca, Colombia" />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23B9802A'/%3E%3Cstop offset='.5' stop-color='%23E8B84E'/%3E%3Cstop offset='1' stop-color='%23F7DF93'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230B0B0B'/%3E%3Ctext x='50' y='52' font-family='Georgia,serif' font-size='46' fill='url(%23g)' text-anchor='middle' dominant-baseline='central'%3EJV%3C/text%3E%3C/svg%3E" />
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Jorge Valencia Photography" />
 <meta property="og:locale" content="es_CO" />
@@ -55,8 +55,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "3.4516",
-    "longitude": "-76.5320"
+    "latitude": "3.4224111",
+    "longitude": "-76.530661"
   },
   "areaServed": ["Cali", "Valle del Cauca", "Colombia"],
   "sameAs": [
@@ -140,6 +140,7 @@ header.bar{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);backgroun
 .bar-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
 .brand{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.35rem;letter-spacing:.14em;text-transform:uppercase}
 .brand b{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:500}
+.brand img{height:38px;width:auto;display:block}
 nav.menu{display:flex;gap:26px;margin-left:auto}
 nav.menu a{color:var(--muted);font-family:"Clash Display";font-weight:500;font-size:.92rem;transition:.18s}
 nav.menu a:hover{color:var(--g3)}
@@ -218,7 +219,7 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
 /* portafolio */
 .gal{column-count:3;column-gap:12px}
 .gal .ph{break-inside:avoid;margin-bottom:12px;border-radius:10px;overflow:hidden;position:relative;border:1px solid var(--line-soft);cursor:pointer}
-.gal .ph img{width:100%;height:auto;filter:grayscale(.15);transition:.5s}
+.gal .ph img{width:100%;height:auto;display:block;filter:grayscale(.15);transition:.5s}
 .gal .ph:hover img{filter:grayscale(0);transform:scale(1.04)}
 /* lightbox modal */
 #lbOverlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.88);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column;gap:20px;padding:24px}
@@ -235,6 +236,23 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
 #lbLabel{color:rgba(255,255,255,.55);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;font-family:"Clash Display",sans-serif}
 #lbBtn{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;color:#1a1206;background:linear-gradient(110deg,#B9802A,#E8B84E 45%,#F7DF93 78%,#E8B84E);padding:11px 24px;border-radius:5px;text-decoration:none;transition:.2s}
 #lbBtn:hover{filter:brightness(1.08);box-shadow:0 8px 24px rgba(232,184,78,.3)}
+
+/* estudio */
+.studio{display:grid;grid-template-columns:1fr 1.1fr;gap:0;border:1px solid var(--line-soft);border-radius:18px;overflow:hidden;background:var(--bg2)}
+.studio-info{padding:48px 44px;display:flex;flex-direction:column;justify-content:center}
+.studio-info .kicker{margin-bottom:14px}
+.studio-info h3{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:2rem;line-height:1.1}
+.studio-info .addr{color:var(--muted);font-size:1.02rem;margin:14px 0 6px;line-height:1.6}
+.studio-info .addr b{color:var(--text);font-weight:600}
+.studio-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.studio-actions a{display:inline-flex;align-items:center;gap:8px;font-family:"Clash Display";font-weight:600;font-size:.9rem;padding:12px 20px;border-radius:6px;transition:.2s}
+.studio-actions .s-map{background:var(--gold);color:#1a1206}
+.studio-actions .s-map:hover{filter:brightness(1.08);box-shadow:0 8px 24px rgba(232,184,78,.28)}
+.studio-actions .s-ig{background:rgba(255,255,255,.03);color:var(--text);border:1px solid var(--line)}
+.studio-actions .s-ig:hover{border-color:var(--g2);color:var(--g3)}
+.studio-map{min-height:340px;position:relative}
+.studio-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.3) invert(.9) hue-rotate(180deg) contrast(.9)}
+@media(max-width:820px){.studio{grid-template-columns:1fr}.studio-map{min-height:300px;order:-1}.studio-info{padding:36px 30px}}
 
 /* cta final */
 .final{text-align:center;background:linear-gradient(180deg,var(--bg),#0e0c0a);border-top:1px solid var(--line-soft)}
@@ -292,6 +310,7 @@ footer{padding:30px 0;border-top:1px solid var(--line-soft);text-align:center;co
 @media(max-width:540px){
   .cats{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
+  .gal{column-count:2;column-gap:8px}
 }
 
 /* ── proceso / cómo trabajo ── */
@@ -311,9 +330,11 @@ footer{padding:30px 0;border-top:1px solid var(--line-soft);text-align:center;co
 .vid:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 28px 70px rgba(232,184,78,.18)}
 .vid:hover::before{opacity:1}
 .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.vid-facade{cursor:pointer;display:grid;place-items:center;background:linear-gradient(135deg,#1c1408,#0b0b0b)}
-.vid-facade .vid-play{width:64px;height:64px;border-radius:50%;background:var(--gold);display:grid;place-items:center;transition:transform .3s ease;box-shadow:0 8px 30px rgba(232,184,78,.4);z-index:4}
-.vid-facade:hover .vid-play{transform:scale(1.12)}
+.vid-facade{cursor:pointer;display:grid;place-items:center;background-color:#0b0b0b;background-size:cover;background-position:center;background-repeat:no-repeat}
+.vid-facade::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,.28),rgba(11,11,11,.58));z-index:1;transition:opacity .3s}
+.vid-facade:hover::before{opacity:.85}
+.vid-facade .vid-play{width:62px;height:62px;border-radius:50%;background:var(--gold);display:grid;place-items:center;transition:transform .3s ease,opacity .3s ease;box-shadow:0 8px 30px rgba(232,184,78,.3);z-index:4;opacity:.78}
+.vid-facade:hover .vid-play{transform:scale(1.12);opacity:1}
 .vid-facade .vid-play svg{width:26px;height:26px;fill:#1a1206;margin-left:3px}
 .vid-facade::after{content:"Ver video";position:absolute;bottom:18px;left:0;right:0;text-align:center;color:rgba(255,255,255,.55);font-family:"Clash Display",sans-serif;font-size:.78rem;letter-spacing:.12em;z-index:4}
 @media(max-width:760px){.videos{grid-template-columns:1fr}}
@@ -353,7 +374,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- HEADER -->
 <header class="bar">
   <div class="wrap bar-in">
-    <a href="#top" class="brand">Jorge <b>Valencia</b></a>
+    <a href="#top" class="brand"><img src="img/logo-dorado.png" alt="Jorge Valencia · Video y Fotografía" /></a>
     <nav class="menu">
       <a href="#categorias">Servicios</a>
       <a href="#sobre">Sobre mí</a>
@@ -497,22 +518,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Una selección de sesiones reales. Cada foto recibe edición artística individual.</p>
     </div>
     <div class="gal stagger-children">
-      <div class="ph" data-label="Bodas" data-link="./bodas/index.html"><img src="img/galeria-bodas-1.jpg" alt="Boda" loading="lazy" /></div>
-      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Valeria-1.JPG" alt="" loading="lazy" /></div>
       <div class="ph" data-label="Quinceañeras" data-link="./quinceaneras/index.html"><img src="img/galeria-quince-1.jpg" alt="Quinceañera" loading="lazy" /></div>
-      <div class="ph" data-label="Bodas" data-link="./bodas/index.html"><img src="img/galeria-bodas-2.jpg" alt="Boda" loading="lazy" /></div>
-      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Diana_Historia-1.jpg" alt="" loading="lazy" /></div>
+      <div class="ph" data-label="Bodas" data-link="./bodas/index.html"><img src="img/galeria-bodas-1.jpg" alt="Boda" loading="lazy" /></div>
+      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Valeria-1.JPG" alt="Maternidad" loading="lazy" /></div>
       <div class="ph" data-label="Cumpleaños" data-link="./cumpleanos/index.html"><img src="img/galeria-cumpleanos-1.png" alt="Cumpleaños" loading="lazy" /></div>
-      <div class="ph" data-label="Bodas" data-link="./bodas/index.html"><img src="img/galeria-bodas-3.jpg" alt="Boda" loading="lazy" /></div>
+      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Anny-10.JPG" alt="Maternidad" loading="lazy" /></div>
       <div class="ph" data-label="Quinceañeras" data-link="./quinceaneras/index.html"><img src="img/galeria-quince-2.jpg" alt="Quinceañera" loading="lazy" /></div>
-      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Anny-10.JPG" alt="" loading="lazy" /></div>
-      <div class="ph" data-label="Bodas" data-link="./bodas/index.html"><img src="img/galeria-bodas-4.jpg" alt="Boda" loading="lazy" /></div>
+      <div class="ph" data-label="Bodas" data-link="./bodas/index.html"><img src="img/galeria-bodas-3.jpg" alt="Boda" loading="lazy" /></div>
+      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Diana_Historia-1.jpg" alt="Maternidad" loading="lazy" /></div>
       <div class="ph" data-label="Quinceañeras" data-link="./quinceaneras/index.html"><img src="img/galeria-quince-3.jpg" alt="Quinceañera" loading="lazy" /></div>
-      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Liseth-3.JPG" alt="" loading="lazy" /></div>
+      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Liseth-3.JPG" alt="Maternidad" loading="lazy" /></div>
+      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Lina-4.JPG" alt="Maternidad" loading="lazy" /></div>
+      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Embarazo_Luisa-2.JPG" alt="Maternidad" loading="lazy" /></div>
+      <div class="ph" data-label="Bodas" data-link="./bodas/index.html"><img src="img/galeria-bodas-2.jpg" alt="Boda" loading="lazy" /></div>
       <div class="ph" data-label="Cumpleaños" data-link="./cumpleanos/index.html"><img src="img/hero-cumpleanos.jpg" alt="Cumpleaños" loading="lazy" /></div>
-      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Valentia-11.JPG" alt="" loading="lazy" /></div>
-      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Embarazo_Luisa-2.JPG" alt="" loading="lazy" /></div>
-      <div class="ph" data-label="Maternidad" data-link="./maternidad/index.html"><img src="img/Lina-4.JPG" alt="" loading="lazy" /></div>
+      <div class="ph" data-label="Bodas" data-link="./bodas/index.html"><img src="img/galeria-bodas-4.jpg" alt="Boda" loading="lazy" /></div>
     </div>
   </div>
 </section>
@@ -526,10 +546,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Porque una historia también se cuenta en movimiento. Mira algunos de nuestros trabajos audiovisuales.</p>
     </div>
     <div class="videos reveal stagger-children">
-      <div class="vid vid-facade" data-vimeo="893555024" role="button" tabindex="0" aria-label="Reproducir video 1">
+      <div class="vid vid-facade" data-vimeo="893555024" role="button" tabindex="0" aria-label="Reproducir video 1" style="background-image:url('img/hero-bodas.jpg')">
         <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       </div>
-      <div class="vid vid-facade" data-vimeo="893558144" role="button" tabindex="0" aria-label="Reproducir video 2">
+      <div class="vid vid-facade" data-vimeo="893558144" role="button" tabindex="0" aria-label="Reproducir video 2" style="background-image:url('img/hero-quince.jpg')">
         <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       </div>
     </div>
@@ -578,7 +598,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
-    <p class="tnote">Estos son solo algunos. Mira más reseñas reales en <a href="https://www.instagram.com/jorgevalenciaph" target="_blank" rel="noopener">mi Instagram</a>.</p>
+    <p class="tnote">Estos son solo algunos. Mira más reseñas reales en <a href="https://maps.app.goo.gl/GGZEketuxhZ8G9pV8" target="_blank" rel="noopener">Google</a> o en <a href="https://www.instagram.com/jorgevalenciaph" target="_blank" rel="noopener">mi Instagram</a>.</p>
   </div>
 </section>
 
@@ -613,6 +633,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="q">
         <button>¿Firman contrato?</button>
         <div class="a"><p>Sí. Con cada cliente firmamos un contrato que protege tu inversión y deja todos los acuerdos claros por escrito.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTUDIO -->
+<section id="estudio">
+  <div class="wrap">
+    <div class="sec-top reveal-down">
+      <span class="kicker">Nuestro estudio</span>
+      <h2>Ven a conocer <em>dónde creamos</em></h2>
+      <p>Contamos con estudio propio en Cali, equipado para sesiones profesionales.</p>
+    </div>
+    <div class="studio reveal">
+      <div class="studio-info">
+        <span class="kicker">Jorge Valencia Foto Estudio</span>
+        <h3>Tu sesión, en un espacio pensado para brillar</h3>
+        <p class="addr"><b>Carrera 35A #12C-14</b><br>Barrio Olímpico · Cali, Valle del Cauca</p>
+        <div class="studio-actions">
+          <a class="s-map" href="https://maps.app.goo.gl/GGZEketuxhZ8G9pV8" target="_blank" rel="noopener">📍 Cómo llegar</a>
+          <a class="s-ig" href="https://www.instagram.com/levelmedia_studio/" target="_blank" rel="noopener">◎ @levelmedia_studio</a>
+        </div>
+      </div>
+      <div class="studio-map">
+        <iframe src="https://maps.google.com/maps?q=3.4224111,-76.530661&z=16&output=embed" loading="lazy" title="Jorge Valencia Foto Estudio en Cali" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>

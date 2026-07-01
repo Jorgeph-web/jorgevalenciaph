@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <!-- Google Tag Manager -->
@@ -61,7 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   ]
 }
 </script>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23B9802A'/%3E%3Cstop offset='.5' stop-color='%23E8B84E'/%3E%3Cstop offset='1' stop-color='%23F7DF93'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230B0B0B'/%3E%3Ctext x='50' y='52' font-family='Georgia,serif' font-size='46' fill='url(%23g)' text-anchor='middle' dominant-baseline='central'%3EJV%3C/text%3E%3C/svg%3E" />
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -97,6 +97,7 @@ header.bar{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);backgroun
 .bar-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
 .brand{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.35rem;letter-spacing:.14em;text-transform:uppercase}
 .brand b{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:500}
+.brand img{height:38px;width:auto;display:block}
 nav.menu{display:flex;gap:26px;margin-left:auto}
 nav.menu a{color:var(--muted);font-family:"Clash Display";font-weight:500;font-size:.92rem;transition:.18s}
 nav.menu a:hover{color:var(--g3)}
@@ -257,6 +258,18 @@ footer .fnav a:hover{color:var(--g3)}
 .tquote .ev{color:var(--muted);font-size:.82rem;text-align:left}
 .tnote{text-align:center;margin-top:34px;color:var(--muted);font-size:.92rem}
 .tnote a{color:var(--g3);border-bottom:1px solid var(--line)}
+.has-drop{position:relative;display:flex;align-items:center}
+.has-drop>.dt{color:var(--muted);font-family:"Clash Display";font-weight:500;font-size:.92rem;cursor:pointer;transition:.18s}
+.has-drop:hover>.dt{color:var(--g3)}
+.drop{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(12px);background:rgba(17,16,16,.98);backdrop-filter:blur(12px);border:1px solid var(--line-soft);border-radius:10px;padding:8px;min-width:190px;opacity:0;pointer-events:none;transition:.22s;box-shadow:0 20px 50px rgba(0,0,0,.5);z-index:50}
+.has-drop:hover .drop{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(6px)}
+.drop a{display:block;padding:9px 14px;border-radius:6px;color:var(--muted);font-size:.9rem;font-family:"Clash Display";font-weight:500;transition:.15s}
+.drop a:hover{background:rgba(232,184,78,.1);color:var(--g3)}
+.drop a.cur{color:var(--g3);background:rgba(232,184,78,.06)}
+.mobile-nav .m-services{display:flex;flex-direction:column;gap:14px;align-items:center;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:20px 0;margin:2px 0;width:min(320px,80%)}
+.mobile-nav .m-services .lbl{font-family:"JetBrains Mono";font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g2)}
+.mobile-nav .m-services a{font-size:1.35rem}
+.mobile-nav .m-services a.cur{color:var(--g3)}
 </style>
 </head>
 <body>
@@ -269,13 +282,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- HEADER -->
 <header class="bar">
   <div class="wrap bar-in">
-    <a href="../index.html" class="brand">Jorge <b>Valencia</b></a>
+    <a href="../index.html" class="brand"><img src="../img/logo-dorado.png" alt="Jorge Valencia · Video y Fotografía" /></a>
     <nav class="menu">
       <a href="#galeria">Galería</a>
       <a href="#video">Video</a>
       <a href="#planes">Planes</a>
       <a href="#faq">Preguntas</a>
-      <a href="../index.html">Inicio</a>
+      <div class="has-drop"><span class="dt">Servicios &#9662;</span><div class="drop"><a href="../bodas/index.html" class="cur">Bodas</a><a href="../quinceaneras/index.html">Quinceañeras</a><a href="../maternidad/index.html">Maternidad</a><a href="../cumpleanos/index.html">Cumpleaños</a></div></div>
     </nav>
     <a class="bar-link" href="https://wa.me/573153864921?text=Hola%20Jorge,%20quiero%20información%20sobre%20fotografía%20de%20bodas" target="_blank" rel="noopener">Reservar →</a>
     <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
@@ -289,6 +302,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#video">Video</a>
   <a href="#planes">Planes</a>
   <a href="#faq">Preguntas</a>
+  <div class="m-services"><span class="lbl">Otras sesiones</span>
+    <a href="../bodas/index.html" class="cur">Bodas</a>
+    <a href="../quinceaneras/index.html">Quinceañeras</a>
+    <a href="../maternidad/index.html">Maternidad</a>
+    <a href="../cumpleanos/index.html">Cumpleaños</a>
+  </div>
   <a href="../index.html">Inicio</a>
   <a class="m-reservar" href="https://wa.me/573153864921?text=Hola%20Jorge,%20quiero%20información%20sobre%20fotografía%20de%20bodas" target="_blank" rel="noopener">Reservar →</a>
 </div>
@@ -480,7 +499,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="av">M</div>
         <div><div class="nm">Maritza y Marcos</div><div class="ev">Boda · Cali</div></div>
       </div>
-      <p class="tnote">Mira más reseñas reales en <a href="https://www.instagram.com/jorgevalenciaph" target="_blank" rel="noopener">mi Instagram</a>.</p>
+      <p class="tnote">Mira más reseñas reales en <a href="https://maps.app.goo.gl/GGZEketuxhZ8G9pV8" target="_blank" rel="noopener">Google</a> o en <a href="https://www.instagram.com/jorgevalenciaph" target="_blank" rel="noopener">mi Instagram</a>.</p>
     </div>
   </div>
 </section>

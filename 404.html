@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Página no encontrada | Jorge Valencia</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#0B0B0B;--g1:#B9802A;--g2:#E8B84E;--g3:#F7DF93;--text:#F6F3EC;--muted:#A89F92;
+  --gold:linear-gradient(110deg,var(--g1),var(--g2) 45%,var(--g3) 78%,var(--g2));}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;overflow:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:0;background:radial-gradient(900px 600px at 85% -10%,rgba(232,184,78,.10),transparent 60%),radial-gradient(700px 500px at -5% 110%,rgba(185,128,42,.06),transparent 60%)}
+.box{position:relative;z-index:1;max-width:560px}
+.logo{width:200px;margin:0 auto 40px;display:block}
+.code{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.34em;text-transform:uppercase;color:var(--g2)}
+h1{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(2.4rem,7vw,4rem);line-height:1.1;margin:16px 0}
+h1 em{font-style:italic;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+p{color:var(--muted);font-size:1.05rem;margin-bottom:34px;line-height:1.6}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:1rem;padding:15px 30px;border-radius:6px;background:var(--gold);color:#1a1206;text-decoration:none;transition:.2s}
+.btn:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 16px 38px rgba(232,184,78,.3)}
+</style>
+</head>
+<body>
+  <div class="box">
+    <img class="logo" src="/img/logo-dorado.png" alt="Jorge Valencia" />
+    <div class="code">Error 404</div>
+    <h1>Esta página se <em>perdió</em></h1>
+    <p>La página que buscas no existe o fue movida. Pero tu historia sí merece ser contada — volvamos al inicio.</p>
+    <a class="btn" href="/index.html">← Volver al inicio</a>
+  </div>
+</body>
+</html>
