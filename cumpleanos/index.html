@@ -41,7 +41,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "offers": [
     { "@type": "Offer", "name": "Esencial", "price": "160000", "priceCurrency": "COP" },
     { "@type": "Offer", "name": "Completo", "price": "320000", "priceCurrency": "COP" },
-    { "@type": "Offer", "name": "Premium", "price": "450000", "priceCurrency": "COP" }
+    { "@type": "Offer", "name": "Premium", "price": "480000", "priceCurrency": "COP" }
   ]
 }
 </script>
@@ -166,7 +166,17 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
 .plan .pbtn{text-align:center;font-family:"Clash Display";font-weight:600;font-size:.9rem;padding:12px;border-radius:6px;border:1px solid var(--line);color:var(--text);transition:.2s}
 .plan .pbtn:hover{background:var(--gold);color:#1a1206;border-color:transparent}
 .plan.feat .pbtn{background:var(--gold);color:#1a1206;border-color:transparent}
+.plan li.gift{color:var(--g3);font-weight:600;background:rgba(232,184,78,.08);border:1px solid var(--line);border-radius:8px;padding:8px 10px 8px 12px;margin-top:10px}
+.plan li.gift::before{content:none}
+.plan li.note{color:var(--muted2);font-style:italic;font-size:.8rem}
+.plan li.note::before{content:"·";font-size:1rem;top:.3rem}
 .plan-note{text-align:center;color:var(--muted);font-size:.9rem;margin-top:26px}
+.extras{max-width:700px;margin:40px auto 0;background:var(--bg2);border:1px solid var(--line-soft);border-radius:16px;padding:28px 30px}
+.extras h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.5rem;text-align:center;margin-bottom:18px}
+.extras ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 26px}
+.extras li{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.92rem;border-bottom:1px dashed var(--line-soft);padding-bottom:8px}
+.extras li b{color:var(--g3);font-weight:600;white-space:nowrap}
+@media(max-width:600px){.extras ul{grid-template-columns:1fr}}
 @media(max-width:760px){.plans{grid-template-columns:1fr;max-width:400px}}
 
 .faqw{max-width:820px;margin:0 auto}
@@ -211,6 +221,8 @@ footer .fnav a:hover{color:var(--g3)}
 .mobile-nav .m-services .lbl{font-family:"JetBrains Mono";font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g2)}
 .mobile-nav .m-services a{font-size:1.35rem}
 .mobile-nav .m-services a.cur{color:var(--g3)}
+.has-drop.open .drop{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(6px)}
+
 </style>
 </head>
 <body>
@@ -221,13 +233,13 @@ footer .fnav a:hover{color:var(--g3)}
 
 <header class="bar">
   <div class="wrap bar-in">
-    <a href="../index.html" class="brand"><img src="../img/logo-dorado.png" alt="Jorge Valencia · Video y Fotografía" /></a>
+    <a href="/" class="brand"><img src="../img/logo-dorado.png" alt="Jorge Valencia · Video y Fotografía" /></a>
     <nav class="menu">
       <a href="#galeria">Galería</a>
       <a href="#proceso">Cómo trabajo</a>
       <a href="#planes">Planes</a>
       <a href="#faq">Preguntas</a>
-      <div class="has-drop"><span class="dt">Servicios &#9662;</span><div class="drop"><a href="../bodas/index.html">Bodas</a><a href="../quinceaneras/index.html">Quinceañeras</a><a href="../maternidad/index.html">Maternidad</a><a href="../cumpleanos/index.html" class="cur">Cumpleaños</a></div></div>
+      <div class="has-drop"><span class="dt">Servicios &#9662;</span><div class="drop"><a href="/bodas/">Bodas</a><a href="/quinceaneras/">Quinceañeras</a><a href="/maternidad/">Maternidad</a><a href="/cumpleanos/" class="cur">Cumpleaños</a></div></div>
     </nav>
     <a class="bar-link" href="https://wa.me/573153864921?text=Hola%20Jorge,%20quiero%20información%20sobre%20una%20sesión%20de%20cumpleaños" target="_blank" rel="noopener">Reservar →</a>
     <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
@@ -241,12 +253,12 @@ footer .fnav a:hover{color:var(--g3)}
   <a href="#planes">Planes</a>
   <a href="#faq">Preguntas</a>
   <div class="m-services"><span class="lbl">Otras sesiones</span>
-    <a href="../bodas/index.html">Bodas</a>
-    <a href="../quinceaneras/index.html">Quinceañeras</a>
-    <a href="../maternidad/index.html">Maternidad</a>
-    <a href="../cumpleanos/index.html" class="cur">Cumpleaños</a>
+    <a href="/bodas/">Bodas</a>
+    <a href="/quinceaneras/">Quinceañeras</a>
+    <a href="/maternidad/">Maternidad</a>
+    <a href="/cumpleanos/" class="cur">Cumpleaños</a>
   </div>
-  <a href="../index.html">Inicio</a>
+  <a href="/">Inicio</a>
   <a class="m-reservar" href="https://wa.me/573153864921?text=Hola%20Jorge,%20quiero%20información%20sobre%20una%20sesión%20de%20cumpleaños" target="_blank" rel="noopener">Reservar →</a>
 </div>
 
@@ -298,7 +310,7 @@ footer .fnav a:hover{color:var(--g3)}
       <p>Una experiencia sencilla y cuidada para que solo te preocupes por disfrutar.</p>
     </div>
     <div class="proc stagger-children">
-      <div class="step"><div class="n">01</div><h3>Reservas tu fecha</h3><p>Apartas tu fecha con un abono y coordinamos todos los detalles de tu sesión.</p></div>
+      <div class="step"><div class="n">01</div><h3>Reservas tu fecha</h3><p>Separas tu fecha con el 50% y el otro 50% lo pagas el día de la sesión.</p></div>
       <div class="step"><div class="n">02</div><h3>Planeamos juntos</h3><p>Definimos concepto, vestuario y los cambios de ropa según el plan que elijas.</p></div>
       <div class="step"><div class="n">03</div><h3>Tu sesión</h3><p>Te guío paso a paso y te muestro las fotos en tiempo real. Sin experiencia previa necesaria.</p></div>
       <div class="step"><div class="n">04</div><h3>Entrega</h3><p>Recibes tu galería digital privada con edición artística en 10-15 días hábiles.</p></div>
@@ -316,20 +328,28 @@ footer .fnav a:hover{color:var(--g3)}
     <div class="plans stagger-children">
       <div class="plan">
         <h3>Esencial</h3><div class="price">$160.000</div>
-        <ul><li>6 fotos editadas profesionalmente</li><li>1 hora de sesión</li><li>2 cambios de vestuario</li><li>Galería digital privada</li></ul>
+        <ul><li>1 hora de sesión</li><li>1 cambio de vestuario</li><li>6 fotos en archivo digital</li><li>Galería digital privada</li></ul>
         <a class="pbtn" href="https://wa.me/573153864921?text=Hola%20Jorge,%20quiero%20el%20plan%20Esencial%20de%20cumpleaños" target="_blank" rel="noopener">Reservar este plan</a>
       </div>
       <div class="plan feat">
         <span class="badge">Más elegido</span>
         <h3>Completo</h3><div class="price">$320.000</div>
-        <ul><li>10 fotos editadas profesionalmente</li><li>1 hora y 30 minutos de sesión</li><li>3 cambios de vestuario</li><li>Galería digital privada</li></ul>
+        <ul><li>Sesión de fotos en estudio</li><li>1 hora de sesión</li><li>2 cambios de ropa</li><li>10 fotos retocadas full calidad</li><li>Galería digital privada</li><li class="note">No incluye decoración, maquillaje ni vestuarios</li><li class="gift">🎁 Regalo: 5 fotos impresas 13×18</li></ul>
         <a class="pbtn" href="https://wa.me/573153864921?text=Hola%20Jorge,%20quiero%20el%20plan%20Completo%20de%20cumpleaños" target="_blank" rel="noopener">Reservar este plan</a>
       </div>
       <div class="plan">
-        <h3>Premium</h3><div class="price">$450.000</div>
-        <ul><li>15 fotos editadas profesionalmente</li><li>2 horas de sesión</li><li><strong>Cambios ilimitados</strong> durante la sesión</li><li>Galería digital privada</li></ul>
+        <h3>Premium</h3><div class="price">$480.000</div>
+        <ul><li>Sesión de fotos en estudio</li><li>Duración máximo 2 horas</li><li>3 cambios de ropa</li><li>15 fotos retocadas full calidad</li><li>Galería digital privada</li><li class="note">No incluye decoración, maquillaje ni vestuarios</li><li class="gift">🎁 Regalo: Foto enmarcada 40×30, retablo a elección</li></ul>
         <a class="pbtn" href="https://wa.me/573153864921?text=Hola%20Jorge,%20quiero%20el%20plan%20Premium%20de%20cumpleaños" target="_blank" rel="noopener">Reservar este plan</a>
       </div>
+    </div>
+    <div class="extras reveal">
+      <h3>Adicionales</h3>
+      <ul>
+        <li><span>Book (libro de fotos) 40×30, 6 hojas</span><b>$160.000</b></li>
+        <li><span>Persona adicional</span><b>$25.000</b></li>
+        <li><span>Foto impresa 13×18</span><b>$25.000</b></li>
+      </ul>
     </div>
     <p class="plan-note">Aceptamos efectivo, Bancolombia, Nequi y Daviplata. ¿Dudas? <a href="https://wa.me/573153864921?text=Hola%20Jorge,%20ayúdame%20a%20elegir%20un%20plan%20de%20cumpleaños" target="_blank" rel="noopener" style="color:var(--g3);border-bottom:1px solid var(--line)">Escríbeme y te asesoro</a>.</p>
   </div>
@@ -344,8 +364,9 @@ footer .fnav a:hover{color:var(--g3)}
     <div class="faqw reveal">
       <div class="q"><button>¿Necesito tener experiencia posando?</button><div class="a"><p>Para nada. La mayoría de mis clientas nunca habían posado antes. Yo te guío paso a paso durante la sesión y te muestro las fotos en tiempo real para que veas lo bien que estás saliendo.</p></div></div>
       <div class="q"><button>¿Puedo venir con una amiga o mi pareja?</button><div class="a"><p>Claro que sí. Cada persona adicional que aparezca en las fotos tiene un costo de $25.000. También pueden venir acompañantes que solo te apoyen sin salir en cámara, sin costo extra.</p></div></div>
-      <div class="q"><button>¿Qué vestuario debo llevar?</button><div class="a"><p>Te asesoramos antes de la sesión sobre qué outfits funcionan mejor según el plan y el concepto que quieras. Los cambios dependen del plan: 2 en Esencial, 3 en Completo e ilimitados en Premium.</p></div></div>
-      <div class="q"><button>¿Cuándo recibo mis fotos?</button><div class="a"><p>El tiempo de entrega de la galería digital es de 10 a 15 días hábiles después de la sesión. Cada foto recibe edición artística individual, no son filtros automáticos.</p></div></div>
+      <div class="q"><button>¿Qué vestuario debo llevar?</button><div class="a"><p>Te asesoramos antes de la sesión sobre qué outfits funcionan mejor según el plan y el concepto que quieras. Los cambios dependen del plan: 1 en Esencial, 2 en Completo y 3 en Premium.</p></div></div>
+      <div class="q"><button>¿Cuándo recibo mis fotos?</button><div class="a"><p>El tiempo de entrega de la galería digital es de 10 a 15 días hábiles después de la sesión, por nuestro flujo de trabajo. Cada foto recibe edición artística individual, no son filtros automáticos.</p></div></div>
+      <div class="q"><button>¿Cómo funciona el pago?</button><div class="a"><p>Separas tu fecha con el 50% y el 50% restante lo pagas el día de la sesión. Aceptamos efectivo, Bancolombia, Nequi y Daviplata.</p></div></div>
     </div>
   </div>
 </section>
@@ -368,10 +389,10 @@ footer .fnav a:hover{color:var(--g3)}
 
 <footer>
   <div class="fnav">
-    <a href="../bodas/index.html">Bodas</a>
-    <a href="../quinceaneras/index.html">Quinceañeras</a>
-    <a href="../maternidad/index.html">Maternidad</a>
-    <a href="../cumpleanos/index.html">Cumpleaños</a>
+    <a href="/bodas/">Bodas</a>
+    <a href="/quinceaneras/">Quinceañeras</a>
+    <a href="/maternidad/">Maternidad</a>
+    <a href="/cumpleanos/">Cumpleaños</a>
   </div>
   © <span id="yr"></span> Jorge Valencia · Video y Fotografía · Cali, Colombia
 </footer>
@@ -407,6 +428,12 @@ footer .fnav a:hover{color:var(--g3)}
   document.getElementById('burger').addEventListener('click',()=>mNav.classList.add('open'));
   document.getElementById('mClose').addEventListener('click',()=>mNav.classList.remove('open'));
   mNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mNav.classList.remove('open')));
+
+  // dropdown servicios: clic para abrir/cerrar
+  document.querySelectorAll('.has-drop').forEach(d=>{
+    d.querySelector('.dt').addEventListener('click',e=>{e.stopPropagation();d.classList.toggle('open');});
+  });
+  document.addEventListener('click',()=>document.querySelectorAll('.has-drop.open').forEach(d=>d.classList.remove('open')));
 </script>
 </body>
 </html>

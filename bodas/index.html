@@ -55,8 +55,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "¿Cubren bodas fuera de Cali?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Hemos cubierto bodas en varias ciudades de Colombia y en el exterior, incluyendo República Dominicana. Solo necesitamos coordinar logística y viáticos con anticipación." } },
-    { "@type": "Question", "name": "¿En cuánto tiempo entregan las fotos?", "acceptedAnswer": { "@type": "Answer", "text": "El tiempo promedio es de 15 a 20 días hábiles. El book impreso se entrega junto con las fotos digitales." } },
-    { "@type": "Question", "name": "¿Puedo pagar en cuotas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Puedes separar tu fecha con un abono inicial y completar el pago antes de la boda. Aceptamos efectivo, transferencia, Nequi, Daviplata y tarjeta." } },
+    { "@type": "Question", "name": "¿En cuánto tiempo entregan las fotos?", "acceptedAnswer": { "@type": "Answer", "text": "El tiempo de entrega es de 10 a 15 días hábiles, por nuestro flujo de trabajo de edición artística. El book impreso se entrega junto con las fotos digitales." } },
+    { "@type": "Question", "name": "¿Cómo funciona el pago?", "acceptedAnswer": { "@type": "Answer", "text": "Separas tu fecha con el 50% y el 50% restante lo pagas el día del evento. Aceptamos efectivo, transferencia, Nequi, Daviplata y tarjeta." } },
     { "@type": "Question", "name": "¿Con cuánta anticipación debo reservar?", "acceptedAnswer": { "@type": "Answer", "text": "Recomendamos reservar con al menos 2-3 meses de anticipación, especialmente para fechas populares como diciembre, febrero y junio." } }
   ]
 }
@@ -270,6 +270,8 @@ footer .fnav a:hover{color:var(--g3)}
 .mobile-nav .m-services .lbl{font-family:"JetBrains Mono";font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g2)}
 .mobile-nav .m-services a{font-size:1.35rem}
 .mobile-nav .m-services a.cur{color:var(--g3)}
+.has-drop.open .drop{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(6px)}
+
 </style>
 </head>
 <body>
@@ -282,13 +284,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- HEADER -->
 <header class="bar">
   <div class="wrap bar-in">
-    <a href="../index.html" class="brand"><img src="../img/logo-dorado.png" alt="Jorge Valencia · Video y Fotografía" /></a>
+    <a href="/" class="brand"><img src="../img/logo-dorado.png" alt="Jorge Valencia · Video y Fotografía" /></a>
     <nav class="menu">
       <a href="#galeria">Galería</a>
       <a href="#video">Video</a>
       <a href="#planes">Planes</a>
       <a href="#faq">Preguntas</a>
-      <div class="has-drop"><span class="dt">Servicios &#9662;</span><div class="drop"><a href="../bodas/index.html" class="cur">Bodas</a><a href="../quinceaneras/index.html">Quinceañeras</a><a href="../maternidad/index.html">Maternidad</a><a href="../cumpleanos/index.html">Cumpleaños</a></div></div>
+      <div class="has-drop"><span class="dt">Servicios &#9662;</span><div class="drop"><a href="/bodas/" class="cur">Bodas</a><a href="/quinceaneras/">Quinceañeras</a><a href="/maternidad/">Maternidad</a><a href="/cumpleanos/">Cumpleaños</a></div></div>
     </nav>
     <a class="bar-link" href="https://wa.me/573153864921?text=Hola%20Jorge,%20quiero%20información%20sobre%20fotografía%20de%20bodas" target="_blank" rel="noopener">Reservar →</a>
     <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
@@ -303,12 +305,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#planes">Planes</a>
   <a href="#faq">Preguntas</a>
   <div class="m-services"><span class="lbl">Otras sesiones</span>
-    <a href="../bodas/index.html" class="cur">Bodas</a>
-    <a href="../quinceaneras/index.html">Quinceañeras</a>
-    <a href="../maternidad/index.html">Maternidad</a>
-    <a href="../cumpleanos/index.html">Cumpleaños</a>
+    <a href="/bodas/" class="cur">Bodas</a>
+    <a href="/quinceaneras/">Quinceañeras</a>
+    <a href="/maternidad/">Maternidad</a>
+    <a href="/cumpleanos/">Cumpleaños</a>
   </div>
-  <a href="../index.html">Inicio</a>
+  <a href="/">Inicio</a>
   <a class="m-reservar" href="https://wa.me/573153864921?text=Hola%20Jorge,%20quiero%20información%20sobre%20fotografía%20de%20bodas" target="_blank" rel="noopener">Reservar →</a>
 </div>
 
@@ -381,7 +383,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="step">
         <div class="n">01</div>
         <h3>Reservas tu fecha</h3>
-        <p>Apartas tu fecha con un abono y firmamos un contrato que protege tu inversión y deja todo claro por escrito.</p>
+        <p>Separas tu fecha con el 50% y firmamos un contrato que protege tu inversión. El otro 50% lo pagas el día del evento.</p>
       </div>
       <div class="step">
         <div class="n">02</div>
@@ -396,7 +398,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="step">
         <div class="n">04</div>
         <h3>Entrega de tu trabajo</h3>
-        <p>Recibes tu material digital y físico en 15-20 días hábiles: book, galería privada y más.</p>
+        <p>Recibes tu material digital y físico en 10-15 días hábiles: book, galería privada y más.</p>
       </div>
     </div>
   </div>
@@ -514,11 +516,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="faqw reveal">
       <div class="q"><button>¿Cubren bodas fuera de Cali?</button><div class="a"><p>Sí. Hemos cubierto bodas en varias ciudades de Colombia y en el exterior, incluyendo República Dominicana (Altos de Chavón, Casa de Campo). Solo necesitamos coordinar logística y viáticos con anticipación.</p></div></div>
       <div class="q"><button>¿Qué incluye el video del plan Premium?</button><div class="a"><p>Incluye video profesional Full HD grabado desde el maquillaje de la novia hasta la hora loca. La duración del video completo depende de lo que se viva el día de la fiesta. Además incluye un trailer cinematográfico de aproximadamente 3 minutos con tomas de drone.</p></div></div>
-      <div class="q"><button>¿En cuánto tiempo entregan las fotos?</button><div class="a"><p>Nos comprometemos con una fecha desde el primer día y la cumplimos. El tiempo promedio es de 15 a 20 días hábiles. El book impreso se entrega junto con las fotos digitales.</p></div></div>
-      <div class="q"><button>¿Puedo pagar en cuotas?</button><div class="a"><p>Sí. Puedes separar tu fecha con un abono inicial y completar el pago antes de la boda. Aceptamos efectivo, transferencia, Nequi, Daviplata y tarjeta.</p></div></div>
+      <div class="q"><button>¿En cuánto tiempo entregan las fotos?</button><div class="a"><p>Nos comprometemos con una fecha desde el primer día y la cumplimos. El tiempo de entrega es de 10 a 15 días hábiles, por nuestro flujo de trabajo de edición artística. El book impreso se entrega junto con las fotos digitales.</p></div></div>
+      <div class="q"><button>¿Cómo funciona el pago?</button><div class="a"><p>Separas tu fecha con el 50% y el 50% restante lo pagas el día del evento. Aceptamos efectivo, transferencia, Nequi, Daviplata y tarjeta.</p></div></div>
       <div class="q"><button>¿Qué es la sesión pre-boda?</button><div class="a"><p>Es una sesión fotográfica de pareja antes de la boda, en la locación que ustedes elijan (parques, haciendas, fincas, centros históricos). Es un momento relajado para capturar su historia de amor sin el estrés del día de la boda.</p></div></div>
       <div class="q"><button>¿Qué incluye la galería digital privada?</button><div class="a"><p>Es un link privado con contraseña donde ustedes y su familia pueden ver, descargar y compartir todas las fotos editadas en alta resolución. Funciona desde cualquier celular o computador.</p></div></div>
-      <div class="q"><button>¿Con cuánta anticipación debo reservar?</button><div class="a"><p>Recomendamos reservar con al menos 2-3 meses de anticipación, especialmente para fechas populares (diciembre, febrero, junio). Separas tu fecha con un abono y listo.</p></div></div>
+      <div class="q"><button>¿Con cuánta anticipación debo reservar?</button><div class="a"><p>Recomendamos reservar con al menos 2-3 meses de anticipación, especialmente para fechas populares (diciembre, febrero, junio). Separas tu fecha con el 50% y listo.</p></div></div>
     </div>
   </div>
 </section>
@@ -542,10 +544,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <footer>
   <div class="fnav">
-    <a href="../bodas/index.html">Bodas</a>
-    <a href="../quinceaneras/index.html">Quinceañeras</a>
-    <a href="../maternidad/index.html">Maternidad</a>
-    <a href="../cumpleanos/index.html">Cumpleaños</a>
+    <a href="/bodas/">Bodas</a>
+    <a href="/quinceaneras/">Quinceañeras</a>
+    <a href="/maternidad/">Maternidad</a>
+    <a href="/cumpleanos/">Cumpleaños</a>
   </div>
   © <span id="yr"></span> Jorge Valencia · Video y Fotografía · Cali, Colombia
 </footer>
@@ -597,6 +599,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.getElementById('burger').addEventListener('click',()=>mNav.classList.add('open'));
   document.getElementById('mClose').addEventListener('click',()=>mNav.classList.remove('open'));
   mNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mNav.classList.remove('open')));
+
+  // dropdown servicios: clic para abrir/cerrar
+  document.querySelectorAll('.has-drop').forEach(d=>{
+    d.querySelector('.dt').addEventListener('click',e=>{e.stopPropagation();d.classList.toggle('open');});
+  });
+  document.addEventListener('click',()=>document.querySelectorAll('.has-drop.open').forEach(d=>d.classList.remove('open')));
 </script>
 </body>
 </html>
