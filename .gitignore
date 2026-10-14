@@ -1,2 +1,9 @@
 .claude/
 _ESTADO-DEL-PROYECTO.md
+
+# originales en alta: solo se publican las de web/
+img/galerias/*/*.jpg
+img/galerias/*/*.JPG
+img/galerias/*/*.jpeg
+img/galerias/*/*.png
+img/galerias/*/*.PNG
