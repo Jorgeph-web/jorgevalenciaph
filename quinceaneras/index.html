@@ -163,16 +163,23 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
 @media(max-width:600px){.lb-arrow{width:42px;height:42px;font-size:1.6rem}#lbPrev{left:8px}#lbNext{right:8px}}
 
 /* video */
-.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
-.vid{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#000;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s ease}
+.videos{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
+.vid{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;background:#000;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s ease}
+.vid-facade{cursor:pointer;display:grid;place-items:center;background-color:#0b0b0b;background-size:cover;background-position:center;background-repeat:no-repeat}
+.vid-facade::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,.28),rgba(11,11,11,.58));z-index:1;transition:opacity .3s}
+.vid-facade:hover::before{opacity:.85}
+.vid-facade .vid-play{width:62px;height:62px;border-radius:50%;background:var(--gold);display:grid;place-items:center;transition:transform .3s ease,opacity .3s ease;box-shadow:0 8px 30px rgba(232,184,78,.3);z-index:4;opacity:.78}
+.vid-facade:hover .vid-play{transform:scale(1.12);opacity:1}
+.vid-facade .vid-play svg{width:26px;height:26px;fill:#1a1206;margin-left:3px}
+.vid-facade::after{content:"Ver video";position:absolute;bottom:18px;left:0;right:0;text-align:center;color:rgba(255,255,255,.55);font-family:"Clash Display",sans-serif;font-size:.78rem;letter-spacing:.12em;z-index:4}
 .vid:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(232,184,78,.16)}
-.vid iframe{width:100%;height:560px;border:0;display:block}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 @media(max-width:960px){
   .videos{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -26px;padding:4px 26px 14px;-webkit-overflow-scrolling:touch}
   .videos::-webkit-scrollbar{height:4px}
   .videos::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
   .vid{flex:0 0 86%;scroll-snap-align:center}
-  .vid iframe{height:500px}
+  
 }
 
 /* proceso */
@@ -377,9 +384,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Porque tus 15 años también se cuentan en movimiento.</p>
     </div>
     <div class="videos reveal">
-      <div class="vid"><iframe src="https://www.instagram.com/p/DA18nPdt-XH/embed/captioned/" allowfullscreen scrolling="no" loading="lazy" title="Video quinceañera 1"></iframe></div>
-      <div class="vid"><iframe src="https://www.instagram.com/p/DPuP9e6kl6q/embed/captioned/" allowfullscreen scrolling="no" loading="lazy" title="Video quinceañera 2"></iframe></div>
-      <div class="vid"><iframe src="https://www.instagram.com/p/DJFy2JTtvWk/embed/captioned/" allowfullscreen scrolling="no" loading="lazy" title="Video quinceañera 3"></iframe></div>
+      <div class="vid vid-facade" data-yt="OWhavxHBsW4" role="button" tabindex="0" aria-label="Reproducir: quince años de Danna Sofía" style="background-image:url('../img/video/quince-danna.jpg')">
+        <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="vid vid-facade" data-yt="ogH55lz7OMg" role="button" tabindex="0" aria-label="Reproducir: quince años de Mariana" style="background-image:url('../img/video/quince-mariana.jpg')">
+        <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
     </div>
   </div>
 </section>
@@ -576,6 +586,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   // lightbox
   const galMas=document.querySelector('.galmas button');
+  // Videos facade (carga YouTube solo al hacer clic)
+  document.querySelectorAll('.vid-facade').forEach(f => {
+    const load = () => {
+      const id = f.dataset.yt;
+      f.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Video"></iframe>';
+      f.classList.remove('vid-facade');
+    };
+    f.addEventListener('click', load);
+    f.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); } });
+  });
+
   if(galMas){galMas.addEventListener('click',()=>{document.querySelectorAll('.gal .ph.oculta').forEach(e=>e.classList.remove('oculta'));galMas.parentElement.remove();});}
 
   const overlay=document.getElementById('lbOverlay'),lbImg=document.getElementById('lbImg');
