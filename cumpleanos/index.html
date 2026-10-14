@@ -128,6 +128,10 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
 .sec-top p{color:var(--muted);font-size:1.06rem;margin-top:14px}
 
 .gal{column-count:3;column-gap:12px}
+.gal .ph.oculta{display:none}
+.galmas{text-align:center;margin-top:28px}
+.galmas button{font-family:"Clash Display"}
+.galmas button:hover{border-color:var(--g2);color:var(--g3)}
 .gal .ph{break-inside:avoid;margin-bottom:12px;border-radius:10px;overflow:hidden;position:relative;border:1px solid var(--line-soft);cursor:pointer}
 .gal .ph img{width:100%;height:auto;filter:grayscale(.12);transition:.5s}
 .gal .ph:hover img{filter:grayscale(0);transform:scale(1.04)}
@@ -292,13 +296,14 @@ footer .fnav a:hover{color:var(--g3)}
       <div class="ph"><img src="img/reyshell-12.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
       <div class="ph"><img src="img/alejandra-13.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
       <div class="ph"><img src="img/mellizas-2.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="img/camila-11.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="img/sofia-5.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="img/maroly-7.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="img/yuri-12.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="img/melo_mas_melo-4.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="img/reyshell-10.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="img/camila-11.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="img/sofia-5.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="img/maroly-7.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="img/yuri-12.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="img/melo_mas_melo-4.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="img/reyshell-10.jpg" alt="Sesión de cumpleaños en Cali" loading="lazy" /></div>
     </div>
+    <div class="galmas"><button class="btn btn-line" type="button">Ver más fotos</button></div>
   </div>
 </section>
 
@@ -413,6 +418,9 @@ footer .fnav a:hover{color:var(--g3)}
   addEventListener('scroll', () => { const h=document.documentElement; document.getElementById('prog').style.width=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100+'%'; });
   const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal,.reveal-down,.stagger-children').forEach(el=>obs.observe(el));
+  const galMas=document.querySelector('.galmas button');
+  if(galMas){galMas.addEventListener('click',()=>{document.querySelectorAll('.gal .ph.oculta').forEach(e=>e.classList.remove('oculta'));galMas.parentElement.remove();});}
+
   const overlay=document.getElementById('lbOverlay'),lbImg=document.getElementById('lbImg');
   const phs=Array.from(document.querySelectorAll('.gal .ph img'));let li=0;
   function showLb(i){li=(i+phs.length)%phs.length;lbImg.style.opacity='0';setTimeout(()=>{lbImg.src=phs[li].src;lbImg.style.opacity='1';},120);}

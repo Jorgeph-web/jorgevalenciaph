@@ -141,6 +141,10 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
 
 /* galería */
 .gal{column-count:3;column-gap:12px}
+.gal .ph.oculta{display:none}
+.galmas{text-align:center;margin-top:28px}
+.galmas button{font-family:"Clash Display"}
+.galmas button:hover{border-color:var(--g2);color:var(--g3)}
 .gal .ph{break-inside:avoid;margin-bottom:12px;border-radius:10px;overflow:hidden;position:relative;border:1px solid var(--line-soft);cursor:pointer}
 .gal .ph img{width:100%;height:auto;filter:grayscale(.12);transition:.5s}
 .gal .ph:hover img{filter:grayscale(0);transform:scale(1.04)}
@@ -346,14 +350,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ph"><img src="../img/galerias/quinceaneras/web/8.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
       <div class="ph"><img src="../img/galerias/quinceaneras/web/11.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
       <div class="ph"><img src="../img/galerias/quinceaneras/web/14.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/13.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/18.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/16.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/19.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/17.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/22.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/21.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/13.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/18.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/16.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/19.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/17.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/22.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/21.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/3.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/6.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/10.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/12.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/15.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/20.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
     </div>
+    <div class="galmas"><button class="btn btn-line" type="button">Ver más fotos</button></div>
   </div>
 </section>
 
@@ -564,6 +575,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.querySelectorAll('.reveal,.reveal-down,.stagger-children').forEach(el => obs.observe(el));
 
   // lightbox
+  const galMas=document.querySelector('.galmas button');
+  if(galMas){galMas.addEventListener('click',()=>{document.querySelectorAll('.gal .ph.oculta').forEach(e=>e.classList.remove('oculta'));galMas.parentElement.remove();});}
+
   const overlay=document.getElementById('lbOverlay'),lbImg=document.getElementById('lbImg');
   const phs=Array.from(document.querySelectorAll('.gal .ph img'));let li=0;
   function showLb(i){li=(i+phs.length)%phs.length;lbImg.style.opacity='0';setTimeout(()=>{lbImg.src=phs[li].src;lbImg.style.opacity='1';},120);}
