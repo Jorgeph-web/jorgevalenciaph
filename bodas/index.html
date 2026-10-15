@@ -154,6 +154,13 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
   .galmas{display:none}
 }
 @media(max-width:520px){.gal{column-width:142px;column-gap:8px}.gal .ph{margin-bottom:8px}}
+@media(max-width:860px){
+  #galeria .wrap{position:relative}
+  #galeria .wrap::after{content:"";position:absolute;top:0;bottom:26px;right:0;width:46px;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;z-index:3;
+    opacity:1;transition:opacity .35s}
+  #galeria .wrap.fin-galeria::after{opacity:0}
+}
 
 
 /* lightbox */
@@ -360,7 +367,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>Así capturamos tu <em>boda</em></h2>
       <p>Una selección de momentos reales. Cada foto recibe edición artística individual.</p>
     </div>
-    <div class="gal">
+    <div class="gal reveal">
       <div class="ph"><img src="../img/galerias/bodas/web/1.jpg" alt="Fotografía de boda en Cali" loading="lazy" /></div>
       <div class="ph"><img src="../img/galerias/bodas/web/6.jpg" alt="Fotografía de boda en Cali" loading="lazy" /></div>
       <div class="ph"><img src="../img/galerias/bodas/web/4.jpg" alt="Fotografía de boda en Cali" loading="lazy" /></div>
@@ -617,6 +624,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   const galMas=document.querySelector('.galmas button');
   // Videos facade (carga YouTube solo al hacer clic)
+  // Galeria deslizable: pista de movimiento + degradado del borde (solo movil)
+  const galEl = document.querySelector('.gal');
+  if (galEl && window.matchMedia('(max-width:860px)').matches) {
+    const wrapEl = galEl.closest('.wrap');
+    const marcarFin = () => {
+      if (!wrapEl) return;
+      const hayMas = galEl.scrollWidth - galEl.clientWidth > 12;
+      const alFinal = galEl.scrollLeft + galEl.clientWidth >= galEl.scrollWidth - 12;
+      wrapEl.classList.toggle('fin-galeria', !hayMas || alFinal);
+    };
+    galEl.addEventListener('scroll', marcarFin, { passive: true });
+    galEl.querySelectorAll('img').forEach(im => im.addEventListener('load', marcarFin));
+    marcarFin();
+    // La pista solo tiene sentido cuando ya hay algo que deslizar: las fotos
+    // son lazy, asi que esperamos a que la galeria tenga ancho real.
+    const lanzarPista = () => {
+      let intentos = 0;
+      const probar = () => {
+        if (galEl.scrollWidth - galEl.clientWidth > 40) {
+          galEl.scrollTo({ left: 72, behavior: 'smooth' });
+          setTimeout(() => galEl.scrollTo({ left: 0, behavior: 'smooth' }), 560);
+        } else if (++intentos < 24) {
+          setTimeout(probar, 250);
+        }
+      };
+      probar();
+    };
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const pista = new IntersectionObserver(es => {
+        es.forEach(e => {
+          if (!e.isIntersecting) return;
+          pista.unobserve(e.target);
+          setTimeout(lanzarPista, 400);
+        });
+      }, { threshold: .35 });
+      pista.observe(galEl);
+    }
+  }
+
   document.querySelectorAll('.vid-facade').forEach(f => {
     const load = () => {
       const id = f.dataset.yt;
