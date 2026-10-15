@@ -128,7 +128,7 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
 .sec-top h2 em{font-style:italic;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
 .sec-top p{color:var(--muted);font-size:1.06rem;margin-top:14px}
 
-.gal{column-count:3;column-gap:12px}
+.gal{column-count:4;column-gap:12px}
 .gal .ph.oculta{display:none}
 .galmas{text-align:center;margin-top:28px}
 .galmas button{font-family:"Clash Display"}
@@ -136,8 +136,25 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
 .gal .ph{break-inside:avoid;margin-bottom:12px;border-radius:10px;overflow:hidden;position:relative;border:1px solid var(--line-soft);cursor:pointer}
 .gal .ph img{width:100%;height:auto;filter:grayscale(.12);transition:.5s}
 .gal .ph:hover img{filter:grayscale(0);transform:scale(1.04)}
-@media(max-width:860px){.gal{column-count:2}}
-@media(max-width:520px){.gal{column-count:2;column-gap:8px}.gal .ph{margin-bottom:8px}}
+@media(max-width:860px){
+  /* Mosaico deslizable: altura fija, las columnas desbordan hacia los lados.
+     Cada foto conserva su proporcion original, sin recortes. */
+  .gal{column-count:initial;column-width:155px;column-gap:10px;height:66vh;
+       overflow-x:auto;overflow-y:hidden;margin:0 -26px;padding:4px 26px 12px;
+       -webkit-overflow-scrolling:touch}
+  .gal::-webkit-scrollbar{height:4px}
+  .gal::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+  .gal .ph{break-inside:avoid;margin-bottom:10px;aspect-ratio:auto}
+  .gal .ph img{width:100%;height:auto;object-fit:initial}
+  .gal .ph.oculta{display:block}
+  .galmas{display:none}
+  #galeria .wrap{position:relative}
+  #galeria .wrap::after{content:"";position:absolute;top:0;bottom:26px;right:0;width:46px;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;z-index:3;
+    opacity:1;transition:opacity .35s}
+  #galeria .wrap.fin-galeria::after{opacity:0}
+}
+@media(max-width:520px){.gal{column-width:142px;column-gap:8px}.gal .ph{margin-bottom:8px}}
 
 #lbOverlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.9);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column;gap:18px;padding:24px}
 #lbOverlay.open{display:flex}
@@ -286,37 +303,37 @@ footer .fnav a:hover{color:var(--g3)}
       <h2>Sesiones que <em>hablan por sí solas</em></h2>
       <p>Una selección de sesiones reales. Cada imagen recibe edición artística individual.</p>
     </div>
-    <div class="gal">
-      <div class="ph"><img src="../img/galerias/maternidad/web/1.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/maternidad/web/2.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/maternidad/web/3.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/maternidad/web/4.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/maternidad/web/5.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/maternidad/web/6.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/maternidad/web/7.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/maternidad/web/8.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/maternidad/web/9.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/maternidad/web/10.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/maternidad/web/12.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/maternidad/web/13.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/maternidad/web/14.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/maternidad/web/15.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Valeria-1.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Diana_Historia-1.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Anny-10.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Liseth-3.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Valentia-11.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Embarazo_Luisa-2.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Lina-4.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Valeria-12.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Liseth-9.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Diana_Historia-3.jpg" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Valentia-5.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Lina-15.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Anny-8.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Embarazo_Luisa-6.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Valeria-4.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/Liseth-20.JPG" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+    <div class="gal reveal">
+      <div class="ph"><img src="../img/galerias/maternidad/web/1.jpg" srcset="../img/galerias/maternidad/web/sm/1.jpg 900w, ../img/galerias/maternidad/web/1.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/maternidad/web/2.jpg" srcset="../img/galerias/maternidad/web/sm/2.jpg 900w, ../img/galerias/maternidad/web/2.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/maternidad/web/3.jpg" srcset="../img/galerias/maternidad/web/sm/3.jpg 900w, ../img/galerias/maternidad/web/3.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/maternidad/web/4.jpg" srcset="../img/galerias/maternidad/web/sm/4.jpg 900w, ../img/galerias/maternidad/web/4.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/maternidad/web/5.jpg" srcset="../img/galerias/maternidad/web/sm/5.jpg 900w, ../img/galerias/maternidad/web/5.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/maternidad/web/6.jpg" srcset="../img/galerias/maternidad/web/sm/6.jpg 900w, ../img/galerias/maternidad/web/6.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/maternidad/web/7.jpg" srcset="../img/galerias/maternidad/web/sm/7.jpg 900w, ../img/galerias/maternidad/web/7.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/maternidad/web/8.jpg" srcset="../img/galerias/maternidad/web/sm/8.jpg 900w, ../img/galerias/maternidad/web/8.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/maternidad/web/9.jpg" srcset="../img/galerias/maternidad/web/sm/9.jpg 900w, ../img/galerias/maternidad/web/9.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/maternidad/web/10.jpg" srcset="../img/galerias/maternidad/web/sm/10.jpg 900w, ../img/galerias/maternidad/web/10.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/maternidad/web/12.jpg" srcset="../img/galerias/maternidad/web/sm/12.jpg 900w, ../img/galerias/maternidad/web/12.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/maternidad/web/13.jpg" srcset="../img/galerias/maternidad/web/sm/13.jpg 900w, ../img/galerias/maternidad/web/13.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/maternidad/web/14.jpg" srcset="../img/galerias/maternidad/web/sm/14.jpg 900w, ../img/galerias/maternidad/web/14.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/maternidad/web/15.jpg" srcset="../img/galerias/maternidad/web/sm/15.jpg 900w, ../img/galerias/maternidad/web/15.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Valeria-1.JPG" srcset="../img/sm/Valeria-1.JPG 900w, ../img/Valeria-1.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Diana_Historia-1.jpg" srcset="../img/sm/Diana_Historia-1.jpg 900w, ../img/Diana_Historia-1.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Anny-10.JPG" srcset="../img/sm/Anny-10.JPG 900w, ../img/Anny-10.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Liseth-3.JPG" srcset="../img/sm/Liseth-3.JPG 900w, ../img/Liseth-3.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Valentia-11.JPG" srcset="../img/sm/Valentia-11.JPG 900w, ../img/Valentia-11.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Embarazo_Luisa-2.JPG" srcset="../img/sm/Embarazo_Luisa-2.JPG 900w, ../img/Embarazo_Luisa-2.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Lina-4.JPG" srcset="../img/sm/Lina-4.JPG 900w, ../img/Lina-4.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Valeria-12.JPG" srcset="../img/sm/Valeria-12.JPG 900w, ../img/Valeria-12.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Liseth-9.JPG" srcset="../img/sm/Liseth-9.JPG 900w, ../img/Liseth-9.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Diana_Historia-3.jpg" srcset="../img/sm/Diana_Historia-3.jpg 900w, ../img/Diana_Historia-3.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Valentia-5.JPG" srcset="../img/sm/Valentia-5.JPG 900w, ../img/Valentia-5.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Lina-15.JPG" srcset="../img/sm/Lina-15.JPG 900w, ../img/Lina-15.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Anny-8.JPG" srcset="../img/sm/Anny-8.JPG 900w, ../img/Anny-8.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Embarazo_Luisa-6.JPG" srcset="../img/sm/Embarazo_Luisa-6.JPG 900w, ../img/Embarazo_Luisa-6.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Valeria-4.JPG" srcset="../img/sm/Valeria-4.JPG 900w, ../img/Valeria-4.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/Liseth-20.JPG" srcset="../img/sm/Liseth-20.JPG 900w, ../img/Liseth-20.JPG 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Sesión de maternidad en Cali" loading="lazy" /></div>
     </div>
     <div class="galmas"><button class="btn btn-line" type="button">Ver más fotos</button></div>
   </div>
@@ -441,6 +458,44 @@ footer .fnav a:hover{color:var(--g3)}
   const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal,.reveal-down,.stagger-children').forEach(el=>obs.observe(el));
   const galMas=document.querySelector('.galmas button');
+  // Galeria deslizable: pista de movimiento + degradado del borde (solo movil)
+  const galEl = document.querySelector('.gal');
+  if (galEl && window.matchMedia('(max-width:860px)').matches) {
+    const wrapEl = galEl.closest('.wrap');
+    const marcarFin = () => {
+      if (!wrapEl) return;
+      const hayMas = galEl.scrollWidth - galEl.clientWidth > 12;
+      const alFinal = galEl.scrollLeft + galEl.clientWidth >= galEl.scrollWidth - 12;
+      wrapEl.classList.toggle('fin-galeria', !hayMas || alFinal);
+    };
+    galEl.addEventListener('scroll', marcarFin, { passive: true });
+    galEl.querySelectorAll('img').forEach(im => im.addEventListener('load', marcarFin));
+    marcarFin();
+    // La pista solo tiene sentido cuando ya hay algo que deslizar: las fotos
+    // son lazy, asi que esperamos a que la galeria tenga ancho real.
+    const lanzarPista = () => {
+      let intentos = 0;
+      const probar = () => {
+        if (galEl.scrollWidth - galEl.clientWidth > 40) {
+          galEl.scrollTo({ left: 72, behavior: 'smooth' });
+          setTimeout(() => galEl.scrollTo({ left: 0, behavior: 'smooth' }), 560);
+        } else if (++intentos < 24) {
+          setTimeout(probar, 250);
+        }
+      };
+      probar();
+    };
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const pista = new IntersectionObserver(es => {
+        es.forEach(e => {
+          if (!e.isIntersecting) return;
+          pista.unobserve(e.target);
+          setTimeout(lanzarPista, 400);
+        });
+      }, { threshold: .35 });
+      pista.observe(galEl);
+    }
+  }
   if(galMas){galMas.addEventListener('click',()=>{document.querySelectorAll('.gal .ph.oculta').forEach(e=>e.classList.remove('oculta'));galMas.parentElement.remove();});}
 
   const overlay=document.getElementById('lbOverlay'),lbImg=document.getElementById('lbImg');

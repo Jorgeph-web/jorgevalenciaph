@@ -140,7 +140,7 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
 .sec-top p{color:var(--muted);font-size:1.06rem;margin-top:14px}
 
 /* galería */
-.gal{column-count:3;column-gap:12px}
+.gal{column-count:4;column-gap:12px}
 .gal .ph.oculta{display:none}
 .galmas{text-align:center;margin-top:28px}
 .galmas button{font-family:"Clash Display"}
@@ -148,8 +148,25 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
 .gal .ph{break-inside:avoid;margin-bottom:12px;border-radius:10px;overflow:hidden;position:relative;border:1px solid var(--line-soft);cursor:pointer}
 .gal .ph img{width:100%;height:auto;filter:grayscale(.12);transition:.5s}
 .gal .ph:hover img{filter:grayscale(0);transform:scale(1.04)}
-@media(max-width:860px){.gal{column-count:2}}
-@media(max-width:520px){.gal{column-count:2;column-gap:8px}.gal .ph{margin-bottom:8px}}
+@media(max-width:860px){
+  /* Mosaico deslizable: altura fija, las columnas desbordan hacia los lados.
+     Cada foto conserva su proporcion original, sin recortes. */
+  .gal{column-count:initial;column-width:155px;column-gap:10px;height:66vh;
+       overflow-x:auto;overflow-y:hidden;margin:0 -26px;padding:4px 26px 12px;
+       -webkit-overflow-scrolling:touch}
+  .gal::-webkit-scrollbar{height:4px}
+  .gal::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+  .gal .ph{break-inside:avoid;margin-bottom:10px;aspect-ratio:auto}
+  .gal .ph img{width:100%;height:auto;object-fit:initial}
+  .gal .ph.oculta{display:block}
+  .galmas{display:none}
+  #galeria .wrap{position:relative}
+  #galeria .wrap::after{content:"";position:absolute;top:0;bottom:26px;right:0;width:46px;
+    background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;z-index:3;
+    opacity:1;transition:opacity .35s}
+  #galeria .wrap.fin-galeria::after{opacity:0}
+}
+@media(max-width:520px){.gal{column-width:142px;column-gap:8px}.gal .ph{margin-bottom:8px}}
 
 /* lightbox */
 #lbOverlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.9);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column;gap:18px;padding:24px}
@@ -347,29 +364,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>Así quedan nuestras <em>quinceañeras</em></h2>
       <p>Una selección de sesiones reales. Cada foto recibe edición artística individual.</p>
     </div>
-    <div class="gal">
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/1.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/4.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/2.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/5.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/9.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/7.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/8.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/11.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph"><img src="../img/galerias/quinceaneras/web/14.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/13.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/18.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/16.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/19.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/17.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/22.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/21.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/3.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/6.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/10.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/12.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/15.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
-      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/20.jpg" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+    <div class="gal reveal">
+      <div class="ph"><img src="../img/galerias/quinceaneras/web/1.jpg" srcset="../img/galerias/quinceaneras/web/sm/1.jpg 900w, ../img/galerias/quinceaneras/web/1.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/quinceaneras/web/4.jpg" srcset="../img/galerias/quinceaneras/web/sm/4.jpg 900w, ../img/galerias/quinceaneras/web/4.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/quinceaneras/web/2.jpg" srcset="../img/galerias/quinceaneras/web/sm/2.jpg 900w, ../img/galerias/quinceaneras/web/2.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/quinceaneras/web/5.jpg" srcset="../img/galerias/quinceaneras/web/sm/5.jpg 900w, ../img/galerias/quinceaneras/web/5.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/quinceaneras/web/9.jpg" srcset="../img/galerias/quinceaneras/web/sm/9.jpg 900w, ../img/galerias/quinceaneras/web/9.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/quinceaneras/web/7.jpg" srcset="../img/galerias/quinceaneras/web/sm/7.jpg 900w, ../img/galerias/quinceaneras/web/7.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/quinceaneras/web/8.jpg" srcset="../img/galerias/quinceaneras/web/sm/8.jpg 900w, ../img/galerias/quinceaneras/web/8.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/quinceaneras/web/11.jpg" srcset="../img/galerias/quinceaneras/web/sm/11.jpg 900w, ../img/galerias/quinceaneras/web/11.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph"><img src="../img/galerias/quinceaneras/web/14.jpg" srcset="../img/galerias/quinceaneras/web/sm/14.jpg 900w, ../img/galerias/quinceaneras/web/14.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/13.jpg" srcset="../img/galerias/quinceaneras/web/sm/13.jpg 900w, ../img/galerias/quinceaneras/web/13.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/18.jpg" srcset="../img/galerias/quinceaneras/web/sm/18.jpg 900w, ../img/galerias/quinceaneras/web/18.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/16.jpg" srcset="../img/galerias/quinceaneras/web/sm/16.jpg 900w, ../img/galerias/quinceaneras/web/16.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/19.jpg" srcset="../img/galerias/quinceaneras/web/sm/19.jpg 900w, ../img/galerias/quinceaneras/web/19.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/17.jpg" srcset="../img/galerias/quinceaneras/web/sm/17.jpg 900w, ../img/galerias/quinceaneras/web/17.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/22.jpg" srcset="../img/galerias/quinceaneras/web/sm/22.jpg 900w, ../img/galerias/quinceaneras/web/22.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/21.jpg" srcset="../img/galerias/quinceaneras/web/sm/21.jpg 900w, ../img/galerias/quinceaneras/web/21.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/3.jpg" srcset="../img/galerias/quinceaneras/web/sm/3.jpg 900w, ../img/galerias/quinceaneras/web/3.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/6.jpg" srcset="../img/galerias/quinceaneras/web/sm/6.jpg 900w, ../img/galerias/quinceaneras/web/6.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/10.jpg" srcset="../img/galerias/quinceaneras/web/sm/10.jpg 900w, ../img/galerias/quinceaneras/web/10.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/12.jpg" srcset="../img/galerias/quinceaneras/web/sm/12.jpg 900w, ../img/galerias/quinceaneras/web/12.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/15.jpg" srcset="../img/galerias/quinceaneras/web/sm/15.jpg 900w, ../img/galerias/quinceaneras/web/15.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
+      <div class="ph oculta"><img src="../img/galerias/quinceaneras/web/20.jpg" srcset="../img/galerias/quinceaneras/web/sm/20.jpg 900w, ../img/galerias/quinceaneras/web/20.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Fotografía de quinceañera en Cali" loading="lazy" /></div>
     </div>
     <div class="galmas"><button class="btn btn-line" type="button">Ver más fotos</button></div>
   </div>
@@ -586,6 +603,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   // lightbox
   const galMas=document.querySelector('.galmas button');
+  // Galeria deslizable: pista de movimiento + degradado del borde (solo movil)
+  const galEl = document.querySelector('.gal');
+  if (galEl && window.matchMedia('(max-width:860px)').matches) {
+    const wrapEl = galEl.closest('.wrap');
+    const marcarFin = () => {
+      if (!wrapEl) return;
+      const hayMas = galEl.scrollWidth - galEl.clientWidth > 12;
+      const alFinal = galEl.scrollLeft + galEl.clientWidth >= galEl.scrollWidth - 12;
+      wrapEl.classList.toggle('fin-galeria', !hayMas || alFinal);
+    };
+    galEl.addEventListener('scroll', marcarFin, { passive: true });
+    galEl.querySelectorAll('img').forEach(im => im.addEventListener('load', marcarFin));
+    marcarFin();
+    // La pista solo tiene sentido cuando ya hay algo que deslizar: las fotos
+    // son lazy, asi que esperamos a que la galeria tenga ancho real.
+    const lanzarPista = () => {
+      let intentos = 0;
+      const probar = () => {
+        if (galEl.scrollWidth - galEl.clientWidth > 40) {
+          galEl.scrollTo({ left: 72, behavior: 'smooth' });
+          setTimeout(() => galEl.scrollTo({ left: 0, behavior: 'smooth' }), 560);
+        } else if (++intentos < 24) {
+          setTimeout(probar, 250);
+        }
+      };
+      probar();
+    };
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const pista = new IntersectionObserver(es => {
+        es.forEach(e => {
+          if (!e.isIntersecting) return;
+          pista.unobserve(e.target);
+          setTimeout(lanzarPista, 400);
+        });
+      }, { threshold: .35 });
+      pista.observe(galEl);
+    }
+  }
   // Videos facade (carga YouTube solo al hacer clic)
   document.querySelectorAll('.vid-facade').forEach(f => {
     const load = () => {
