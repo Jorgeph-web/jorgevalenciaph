@@ -155,15 +155,19 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
 }
 @media(max-width:520px){.vid{flex:0 0 72%}}
 @media(max-width:860px){
-  /* Mosaico deslizable: altura fija, las columnas desbordan hacia los lados.
-     Cada foto conserva su proporcion original, sin recortes. */
-  .gal{column-count:initial;column-width:155px;column-gap:10px;height:66vh;
-       overflow-x:auto;overflow-y:hidden;margin:0 -26px;padding:4px 26px 12px;
-       -webkit-overflow-scrolling:touch}
+  /* Galeria en 3 filas fijas que se deslizan en horizontal.
+     Cada foto conserva su proporcion: la altura de fila manda y el ancho
+     se adapta, asi no se recorta nada. */
+  .gal{column-count:initial;height:auto;
+       display:grid;grid-auto-flow:column;grid-template-rows:repeat(3,200px);
+       grid-auto-columns:max-content;gap:8px;
+       overflow-x:auto;overflow-y:hidden;
+       scroll-snap-type:x proximity;
+       margin:0 -26px;padding:4px 26px 12px;-webkit-overflow-scrolling:touch}
   .gal::-webkit-scrollbar{height:4px}
   .gal::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
-  .gal .ph{break-inside:avoid;margin-bottom:10px;aspect-ratio:auto}
-  .gal .ph img{width:100%;height:auto;object-fit:initial}
+  .gal .ph{height:200px;margin-bottom:0;aspect-ratio:auto;scroll-snap-align:start}
+  .gal .ph img{height:100%;width:auto;object-fit:initial;display:block}
   .gal .ph.oculta{display:block}
   .galmas{display:none}
   #galeria .wrap{position:relative}
@@ -172,7 +176,7 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
     opacity:1;transition:opacity .35s}
   #galeria .wrap.fin-galeria::after{opacity:0}
 }
-@media(max-width:520px){.gal{column-width:142px;column-gap:8px}.gal .ph{margin-bottom:8px}}
+@media(max-width:520px){.gal{grid-template-rows:repeat(3,200px)}.gal .ph{height:200px}}
 
 #lbOverlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.9);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column;gap:18px;padding:24px}
 #lbOverlay.open{display:flex}
