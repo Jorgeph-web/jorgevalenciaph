@@ -221,16 +221,16 @@ section{position:relative;padding:84px 0;scroll-margin-top:84px}
   .xmas-cta{align-items:flex-start;width:100%;flex-direction:row;justify-content:space-between;align-items:center}
 }
 @media(prefers-reduced-motion:reduce){.xlights{animation:none;opacity:.7}}
-.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
 .cat{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line-soft);transition:.3s}
 .cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.6s;filter:grayscale(.25) brightness(.7)}
 .cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(11,11,11,.88))}
 .cat:hover{border-color:var(--line);transform:translateY(-5px)}
 .cat:hover img{transform:scale(1.07);filter:grayscale(0) brightness(.8)}
-.cat-info{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px 24px}
+.cat-info{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 18px}
 .cat-info .ct{font-family:"JetBrains Mono";font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g2)}
-.cat-info h3{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:1.85rem;margin:6px 0 4px}
-.cat-info p{color:var(--muted);font-size:.86rem}
+.cat-info h3{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:1.55rem;line-height:1.1;margin:6px 0 4px}
+.cat-info p{color:var(--muted);font-size:.8rem;line-height:1.45}
 .cat-info .go{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-family:"Clash Display";font-weight:600;font-size:.84rem;color:var(--g3);opacity:0;transform:translateX(-6px);transition:.3s}
 .cat:hover .cat-info .go{opacity:1;transform:translateX(0)}
 
@@ -352,6 +352,7 @@ footer .fnav a:hover{color:var(--g3)}
 .mobile-nav .m-services{display:flex;flex-direction:column;gap:12px;align-items:center;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:18px 0;margin:2px 0;width:min(320px,80%)}
 .mobile-nav .m-services .lbl{font-family:"JetBrains Mono";font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g2)}
 .mobile-nav .m-services a{font-size:1.25rem}
+@media(max-width:1040px){.cats{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:860px){
   nav.menu{display:none}
   .burger{display:flex}
@@ -507,6 +508,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </a>
     <div class="cats stagger-children">
+      <a class="cat" href="/revelacion-de-genero/">
+        <img src="img/galerias/revelacion/web/1.jpg" srcset="img/galerias/revelacion/web/sm/1.jpg 900w, img/galerias/revelacion/web/1.jpg 2000w" sizes="(max-width:540px) 92vw, (max-width:860px) 45vw, 215px" alt="Revelación de género" loading="lazy" />
+        <div class="cat-info">
+          <h3>Revelación de Género</h3>
+          <p>Nosotros guardamos el secreto y montamos todo.</p>
+          <span class="go">Ver más →</span>
+        </div>
+      </a>
       <a class="cat" href="/bodas/">
         <img src="img/galerias/bodas/web/28.jpg" alt="Bodas" />
         <div class="cat-info">
