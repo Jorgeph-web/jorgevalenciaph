@@ -7,3 +7,9 @@ img/galerias/*/*.JPG
 img/galerias/*/*.jpeg
 img/galerias/*/*.png
 img/galerias/*/*.PNG
+
+# videos originales: nunca van al repo (van a YouTube)
+*.mp4
+*.MP4
+*.mov
+*.MOV
