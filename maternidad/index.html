@@ -94,6 +94,18 @@ nav.menu a{color:var(--muted);font-family:"Clash Display";font-weight:500;font-s
 nav.menu a:hover{color:var(--g3)}
 .bar-link{font-family:"Clash Display";font-weight:600;font-size:.9rem;color:#1a1206;background:var(--gold);padding:10px 18px;border-radius:5px;transition:.2s;white-space:nowrap}
 .bar-link:hover{filter:brightness(1.08);box-shadow:0 8px 24px rgba(232,184,78,.28)}
+.tcards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tcard{background:var(--bg2);border:1px solid var(--line-soft);border-radius:16px;padding:30px 26px;transition:.3s}
+.tcard:hover{border-color:var(--line);transform:translateY(-4px)}
+.tcard .stars{color:var(--g2);font-size:.9rem;letter-spacing:3px;margin-bottom:10px}
+.tcard p{color:var(--text);font-size:.96rem;line-height:1.7;margin:0 0 20px;font-style:italic;opacity:.92}
+.tcard .who{display:flex;align-items:center;gap:12px}
+.tcard .who .av{width:44px;height:44px;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:600;color:#1a1206;font-size:1.15rem;flex-shrink:0}
+.tcard .who .nm{font-family:"Clash Display";font-weight:600;font-size:.95rem}
+.tcard .who .ev{color:var(--muted);font-size:.8rem}
+.tnote{text-align:center;margin-top:30px;color:var(--muted);font-size:.92rem}
+.tnote a{color:var(--g3);border-bottom:1px solid var(--line)}
+@media(max-width:860px){.tcards{grid-template-columns:1fr}}
 @media(max-width:860px){nav.menu{display:none}}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
 .burger span{width:24px;height:2px;background:var(--text)}
@@ -433,6 +445,34 @@ footer .fnav a:hover{color:var(--g3)}
   </div>
 </section>
 
+
+<!-- TESTIMONIOS -->
+<section id="testimonios">
+  <div class="wrap">
+    <div class="sec-top reveal-down">
+      <span class="kicker">Testimonios</span>
+      <h2>Lo que dicen las <em>mamás</em></h2>
+    </div>
+    <div class="tcards stagger-children">
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <p>"¡Excelente experiencia! Un fotógrafo muy profesional, y logra capturar momentos de una manera espectacular. Su trabajo refleja calidad, creatividad y pasión. Además, brinda una atención amable y hace que todo el proceso sea muy agradable. ¡Quedé encantada con el resultado! Sin duda, 100% recomendado."</p>
+        <div class="who"><div class="av">A</div><div><div class="nm">Ana María</div><div class="ev">Sesión de maternidad</div></div></div>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <p>"Me encantó esta experiencia, muy buena disposición para que nos quedaran unas fotos muy hermosas. Gracias."</p>
+        <div class="who"><div class="av">X</div><div><div class="nm">Ximena Obando</div><div class="ev">Sesión de maternidad</div></div></div>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <p>"Muy buena la atención. Súper recomendado."</p>
+        <div class="who"><div class="av">Y</div><div><div class="nm">Yajari Rivas</div><div class="ev">Sesión de maternidad</div></div></div>
+      </div>
+    </div>
+    <p class="tnote">Estas reseñas están publicadas en <a href="https://maps.app.goo.gl/GGZEketuxhZ8G9pV8" target="_blank" rel="noopener">Google</a>, donde puedes leerlas completas.</p>
+  </div>
+</section>
 <section id="faq">
   <div class="wrap">
     <div class="sec-top reveal-down">
