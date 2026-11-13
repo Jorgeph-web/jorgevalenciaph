@@ -450,12 +450,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#estudio">Estudio</a>
   <a href="#contacto">Contacto</a>
   <div class="m-services"><span class="lbl">Sesiones</span>
-    <a href="/revelacion-de-genero/">Revelación de Género</a>
     <a href="/navidad/">Navidad</a>
     <a href="/bodas/">Bodas</a>
     <a href="/quinceaneras/">Quinceañeras</a>
     <a href="/maternidad/">Maternidad</a>
     <a href="/cumpleanos/">Cumpleaños</a>
+    <a href="/revelacion-de-genero/">Revelación de Género</a>
   </div>
   <a id="wa-home-menu" class="m-reservar" href="https://wa.me/573015653392?text=Hola%20Jorge,%20quiero%20información" target="_blank" rel="noopener">Reservar →</a>
 </div>
@@ -463,16 +463,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-slides">
-    <div class="hero-slide active" data-bg="img/hero-bodas.jpg" style="background-image:url('img/hero-bodas.jpg')"></div>
+    <div class="hero-slide active" data-bg="img/hero-navidad.jpg" style="background-image:url('img/hero-navidad.jpg')"></div>
+    <div class="hero-slide" data-bg="img/hero-bodas.jpg"></div>
     <div class="hero-slide" data-bg="img/hero-quince.jpg"></div>
     <div class="hero-slide" data-bg="img/hero-maternidad.jpg"></div>
     <div class="hero-slide" data-bg="img/hero-cumpleanos.jpg" style="background-position:center 22%"></div>
+    <div class="hero-slide" data-bg="img/hero-revelacion.jpg"></div>
   </div>
   <div class="hero-dots">
-    <button class="hero-dot active" onclick="goSlide(0)" aria-label="Ver Bodas"></button>
-    <button class="hero-dot" onclick="goSlide(1)" aria-label="Ver Quinceañeras"></button>
-    <button class="hero-dot" onclick="goSlide(2)" aria-label="Ver Maternidad"></button>
-    <button class="hero-dot" onclick="goSlide(3)" aria-label="Ver Cumpleaños"></button>
+    <button class="hero-dot active" onclick="goSlide(0)" aria-label="Ver Navidad"></button>
+    <button class="hero-dot" onclick="goSlide(1)" aria-label="Ver Bodas"></button>
+    <button class="hero-dot" onclick="goSlide(2)" aria-label="Ver Quinceañeras"></button>
+    <button class="hero-dot" onclick="goSlide(3)" aria-label="Ver Maternidad"></button>
+    <button class="hero-dot" onclick="goSlide(4)" aria-label="Ver Cumpleaños"></button>
+    <button class="hero-dot" onclick="goSlide(5)" aria-label="Ver Revelación de Género"></button>
   </div>
   <div class="hero-prog" id="heroProg"></div>
   <div class="wrap hero-in">
@@ -481,7 +485,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="lead">Más de 7 años capturando las historias más importantes de Cali y el mundo.</p>
     <div class="cta">
       <a id="wa-home-hero" class="btn btn-gold" href="https://wa.me/573015653392?text=Hola%20Jorge,%20quiero%20reservar%20una%20sesión" target="_blank" rel="noopener">Reservar sesión →</a>
-      <a class="btn btn-line" id="heroVerMas" href="/bodas/">Ver Bodas →</a>
+      <a class="btn btn-line" id="heroVerMas" href="/navidad/">Ver Navidad →</a>
     </div>
   </div>
 </section>
@@ -786,12 +790,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <footer>
   <div class="fnav">
-    <a href="/revelacion-de-genero/">Revelación de Género</a>
     <a href="/navidad/">Navidad</a>
     <a href="/bodas/">Bodas</a>
     <a href="/quinceaneras/">Quinceañeras</a>
     <a href="/maternidad/">Maternidad</a>
     <a href="/cumpleanos/">Cumpleaños</a>
+    <a href="/revelacion-de-genero/">Revelación de Género</a>
   </div>
   © <span id="yr"></span> Jorge Valencia · Video y Fotografía · Cali, Colombia
 </footer>
@@ -830,10 +834,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   let current = 0, timer;
 
   const slideData = [
+    { label: 'Navidad',      link: '/navidad/' },
     { label: 'Bodas',        link: '/bodas/' },
     { label: 'Quinceañeras', link: '/quinceaneras/' },
     { label: 'Maternidad',   link: '/maternidad/' },
-    { label: 'Cumpleaños',   link: '/cumpleanos/' }
+    { label: 'Cumpleaños',   link: '/cumpleanos/' },
+    { label: 'Revelación de Género', link: '/revelacion-de-genero/' }
   ];
 
   function goSlide(n){
