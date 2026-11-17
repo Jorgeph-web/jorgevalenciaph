@@ -292,6 +292,26 @@ footer .fnav a:hover{color:var(--g3)}
 .mobile-nav .m-services a{font-size:1.25rem}
 .mobile-nav .m-services a.cur{color:var(--g3)}
 .has-drop.open .drop{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(6px)}
+/* video: destacado horizontal + Shorts verticales 9:16 */
+.vid-feature{max-width:860px;margin:8px auto 18px}
+.videos{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.vid{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:9/16;background:#000;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s ease}
+.vid.wide{aspect-ratio:16/9}
+.vid:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,.5)}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.vid-facade{cursor:pointer;display:grid;place-items:center;background-color:#0b0b0b;background-size:cover;background-position:center;background-repeat:no-repeat}
+.vid-facade::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,.12),rgba(11,11,11,.45));z-index:1;transition:opacity .3s}
+.vid-facade:hover::before{opacity:.6}
+.vid-facade .vid-play{width:56px;height:56px;border-radius:50%;background:var(--gold);display:grid;place-items:center;transition:transform .3s ease,opacity .3s ease;box-shadow:0 8px 30px rgba(232,184,78,.3);z-index:4;opacity:.85}
+.vid-facade:hover .vid-play{transform:scale(1.12);opacity:1}
+.vid-facade .vid-play svg{width:24px;height:24px;fill:#1a1206;margin-left:3px}
+@media(max-width:960px){
+  .videos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -26px;padding:4px 26px 14px;-webkit-overflow-scrolling:touch}
+  .videos::-webkit-scrollbar{height:4px}
+  .videos::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+  .videos .vid{flex:0 0 42%;scroll-snap-align:center}
+}
+@media(max-width:600px){.videos .vid{flex:0 0 66%}}
 </style>
 <link rel="stylesheet" href="/assets/motion.css" />
 <script src="/assets/motion.js" defer></script>
@@ -308,6 +328,7 @@ footer .fnav a:hover{color:var(--g3)}
     <nav class="menu">
       <a href="#secreto">El secreto</a>
       <a href="#galeria">Galería</a>
+<a href="#video">Video</a>
       <a href="#formas">Cómo se revela</a>
       <a href="#planes">Planes</a>
       <a href="#faq">Preguntas</a>
@@ -322,6 +343,7 @@ footer .fnav a:hover{color:var(--g3)}
   <button class="mclose" id="mClose" aria-label="Cerrar">×</button>
   <a href="#secreto">El secreto</a>
       <a href="#galeria">Galería</a>
+<a href="#video">Video</a>
   <a href="#formas">Cómo se revela</a>
   <a href="#planes">Planes</a>
   <a href="#faq">Preguntas</a>
@@ -421,6 +443,39 @@ footer .fnav a:hover{color:var(--g3)}
       <div class="ph oculta"><img src="../img/galerias/revelacion/web/7.jpg" srcset="../img/galerias/revelacion/web/sm/7.jpg 900w, ../img/galerias/revelacion/web/7.jpg 2000w" sizes="(max-width:520px) 142px, (max-width:860px) 155px, 280px" alt="Revelación de género en Cali" loading="lazy" /></div>
     </div>
     <div class="galmas"><button class="btn btn-line" type="button">Ver más fotos</button></div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="wrap">
+    <div class="sec-top reveal-down">
+      <span class="kicker">Video</span>
+      <h2>La emoción de saberlo, <em>en movimiento</em></h2>
+      <p>Revelaciones reales en el estudio y al aire libre.</p>
+    </div>
+    <div class="vid-feature reveal">
+      <div class="vid vid-facade wide" data-yt="t1GJlJly_zs" role="button" tabindex="0" aria-label="Reproducir: revelación de género de Máximo en estudio" style="background-image:url('../img/video/rev-maximo.jpg')">
+        <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+    </div>
+    <div class="videos reveal">
+      <div class="vid vid-facade" data-yt="1--XnAUFgmc" role="button" tabindex="0" aria-label="Reproducir: revelación de género de Danilsa en estudio" style="background-image:url('../img/video/rev-danilsa.jpg')">
+        <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="vid vid-facade" data-yt="r179Vk9t_ZY" role="button" tabindex="0" aria-label="Reproducir: revelación de género de Mayerlin al aire libre" style="background-image:url('../img/video/rev-mayerlin.jpg')">
+        <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="vid vid-facade" data-yt="DbGWunLsvDo" role="button" tabindex="0" aria-label="Reproducir: revelación de género de Wendy en estudio" style="background-image:url('../img/video/rev-wendy.jpg')">
+        <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="vid vid-facade" data-yt="kGPLhbayvcY" role="button" tabindex="0" aria-label="Reproducir: revelación de género de Lina al aire libre" style="background-image:url('../img/video/rev-lina.jpg')">
+        <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="vid vid-facade" data-yt="jYw9tZRaYcQ" role="button" tabindex="0" aria-label="Reproducir: revelación de género de Anayansi en estudio" style="background-image:url('../img/video/rev-anayansi.jpg')">
+        <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -623,6 +678,16 @@ footer .fnav a:hover{color:var(--g3)}
 </div>
 
 <script>
+  // Videos facade (carga YouTube solo al hacer clic)
+  document.querySelectorAll('.vid-facade').forEach(f => {
+    const load = () => {
+      const id = f.dataset.yt;
+      f.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Video"></iframe>';
+      f.classList.remove('vid-facade');
+    };
+    f.addEventListener('click', load);
+    f.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); } });
+  });
   document.getElementById('yr').textContent = new Date().getFullYear();
   addEventListener('scroll', () => { const h=document.documentElement; document.getElementById('prog').style.width=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100+'%'; });
 
